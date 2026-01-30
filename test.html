@@ -6,36 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            margin-bottom: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+        }
+        input[type="submit"], button {
+            padding: 5px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
+    <div class="container">
+        <h2>Posts Management</h2>
         <table>
             <thead>
                 <tr>
-                    <td>
-                        ID
-                    </td>
-                    <td>
-                        Title
-                    </td>
-                    <td>
-                        Views
-                    </td>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="body-table">
                 
             </tbody>
         </table>
+        <div>
+            <input type="text" id="id_txt" placeholder="ID (leave empty for auto-generate)"/>
+            <input type="text" id="title_txt" placeholder="Title"/>
+            <input type="text" id="views_txt" placeholder="Views"/>
+        </div>
+        <div>
+            <input type="submit" value="Save Post" onclick="Save()"/>
+        </div>
     </div>
-    <div>
-        <input type="text" id="id_txt"/>
-        <input type="text" id="title_txt"/>
-        <input type="text" id="views_txt"/>
-    </div>
-    <div>
-        <input type="submit" value="Save" onclick="Save()"/>
+
+    <div class="container">
+        <h2>Comments Management</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Comment Text</th>
+                    <th>Post ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="comments-table">
+                
+            </tbody>
+        </table>
+        <div>
+            <input type="text" id="comment_id_txt" placeholder="Comment ID (leave empty for auto)"/>
+            <input type="text" id="comment_text_txt" placeholder="Comment Text"/>
+            <input type="text" id="comment_postid_txt" placeholder="Post ID"/>
+        </div>
+        <div>
+            <input type="submit" value="Save Comment" onclick="SaveComment()"/>
+        </div>
     </div>
 </body>
 
